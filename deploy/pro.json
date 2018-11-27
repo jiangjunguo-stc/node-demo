@@ -1,0 +1,21 @@
+/*
+  服务部署文件
+  注意：必须在系统更目录里执行以下命令
+  开发环境执行: pm2 start dev.json (pm2 会执行该文件  dev.json里script脚本)
+  正式环境执行: pm2 start pro.json (pm2 会执行该文件  pro.json里script脚本)
+  测试环境执行: pm2 start test.json (pm2 会执行该文件  pro.json里script脚本)
+ */
+{
+  "apps": [
+    {
+      "name": "node-demo",
+      "script": "./bin/run",
+      "instances": 1,
+      "watch": false,
+      "env": {
+        "NODE_ENV": "production"
+      },
+      "log_date_format": "YYYY-MM-DD HH:mm Z"
+    }
+  ]
+}
